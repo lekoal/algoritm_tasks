@@ -20,21 +20,21 @@ public class Main {
         int sum = 100;
         int check = 0;
         int ich = 0;
-        for (int i = coord.length - 1; i > 0; i--) {
+        for (int i = coord.length - 1; i >= 0; i--) {
             fromStart = 0;
             fromEnd = 0;
             for (int j = coord.length - i - 1, k = i; j < coord.length; j++, k--) {
                 fromStart += Math.abs(coord[j]);
-                fromEnd -= Math.abs(coord[k]);
+                fromEnd += Math.abs(coord[k]);
                 System.out.println(fromStart + " " + Math.abs(fromEnd));
                 System.out.println();
                 }
-            if (sum > (fromStart + Math.abs(fromEnd)) || (sum == (fromStart + Math.abs(fromEnd)) && i > ich)) {
+            if (sum > (fromStart + Math.abs(fromEnd))) {
                 sum = (fromStart + Math.abs(fromEnd));
                 check = coord[i];
                 ich = i;
             }
-
+            System.out.println("i now is: " + ich);
         }
         return check;
     }
